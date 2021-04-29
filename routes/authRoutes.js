@@ -1,24 +1,22 @@
 const express = require("express");
 
-const userController = require("../controllers/userController");
-const userValidator = require("../middlewares/validators/userValidator");
+const authController = require("../controllers/authController");
+const authValidator = require("../middlewares/validators/authValidator");
 const auth = require("../middlewares/auth");
-
-const router = express.Router();
 
 const router = express.Router();
 
 router.post(
   "/signup",
-  userValidator.signup,
+  authValidator.signup,
   auth.signup,
-  userController.getToken
+  authController.getToken
 );
 router.post(
   "/signin",
-  userValidator.signin,
+  authValidator.signin,
   auth.signin,
-  userController.getToken
+  authController.getToken
 );
 // router.put("/update/", auth.user, userValidator.update, userController.update);
 // router.get("/", auth.user, userController.getOne);

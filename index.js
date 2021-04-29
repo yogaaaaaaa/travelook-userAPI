@@ -8,7 +8,7 @@ const express = require("express");
 const fileUpload = require("express-fileupload");
 
 //import routes
-const userRoutes = require("./routes/userRoutes");
+const userRoutes = require("./routes/userRoutes.js");
 
 app.use(json());
 
