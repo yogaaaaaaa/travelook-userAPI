@@ -29,6 +29,7 @@ function fileFilter(req, file, cb) {
     // If file type is image it will pass
     cb(null, true);
   } else {
+    console.log(cb)
     // If file type is not image it will make error
     cb(new Error("File must be an image!"), false);
   }
@@ -38,7 +39,7 @@ function fileFilter(req, file, cb) {
 const upload = multer({
   fileFilter: fileFilter, // filter file first
   storage: storage, // If filter no error, go to storage function
-}).single("image");
+}).single("profile_image");
 
 // Function to start uploading
 module.exports.imageUpload = (req, res, next) => {
@@ -46,6 +47,7 @@ module.exports.imageUpload = (req, res, next) => {
     // If an error when uploading
     if (err instanceof multer.MulterError) {
       // A Multer error occurred when uploading.
+      console.log(err)
       return res.status(400).json({
         message: "File must be an image!",
       });

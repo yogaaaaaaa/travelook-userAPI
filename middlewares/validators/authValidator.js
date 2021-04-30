@@ -1,4 +1,5 @@
 const validator = require("validator");
+// const { user } = require("../../models");
 
 exports.signup = async (req, res, next) => {
   //check req.body.email is email

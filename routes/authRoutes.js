@@ -10,7 +10,7 @@ const { imageUpload } = require("../middlewares/uploads/imageUpload");
 const router = express.Router();
 
 router.post(
-  "/signup", imageUpload, authValidator.signup,  authController.getToken
+  "/signup", imageUpload,  authValidator.signup, auth.signup,  authController.getToken
 );
 router.post(
   "/signin",

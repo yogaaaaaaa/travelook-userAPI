@@ -1,11 +1,13 @@
 const e = require("express");
 const { user } = require("../models");
+const jwt = require("jsonwebtoken");
 
 class AuthController {
   async getToken(req, res) {
     try {
       //get the req.user from authRoutes
       // and create body variable
+      console.log(req.user.id)
       const body = {
         id: req.user.id,
         //  role: req.user.role,

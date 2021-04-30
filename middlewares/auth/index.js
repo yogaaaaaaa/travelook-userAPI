@@ -1,6 +1,6 @@
 const passport = require("passport"); //import passport
 const LocalStrategy = require("passport-local").Strategy; //import localstrategy
-const { user } = require("../../models"); //import user model
+const { User } = require("../../models"); //import user model
 const bcrypt = require("bcrypt"); //import bcrypt (encrypt and comparePassword)
 const JWTStrategy = require("passport-jwt").Strategy; //impoer jwt strategy
 const ExtractJwt = require("passport-jwt").ExtractJwt; // impoer extractJWT
@@ -49,23 +49,26 @@ passport.use(
       try {
         //after user call this passport
         //it will run this method and create the user depends on req.body
-        let userSignUp = await user.create(req.body);
+        let userSignUp = await User.create(req.body);
 
         //fi  create user success, it will make
         //err=null
         //user = userSignUp
         //info = {message: "user created"}
-
+        
         return done(null, userSignUp, {
           message: "User Created",
           
         });
+
+        
       } catch (e) {
+        console.log(e);
         //if create user failed, it will make
         //err = null
         //user = false
         //info = {message: "user cant be craeted"}
-        console.e(message);
+        // console.e(message);
         return done(null, false, {
           message: "Can't Create User",
         });
@@ -117,7 +120,7 @@ passport.use(
       try {
         //after user call this passport
         //it will run this method and create the user depends on req.body
-        let userSignIn = await user.findOne({ email });
+        let userSignIn = await User.findOne({ where: {email: req.body.email} });
 
         //fi  create user success, it will make
         //err=null
@@ -130,16 +133,16 @@ passport.use(
         }
 
         //if user exist
-        let validate = await bcrypt.compare(password, userSignIn.password);
+        // let validate = await bcrypt.compare(password, userSignIn.password);
 
         //if password is worng
         // console.log(password)
 
-        if (!validate) {
-          return done(null, false, {
-            message: "Wrong Password",
-          });
-        }
+        // if (!validate) {
+        //   return done(null, false, {
+        //     message: "Wrong Password",
+        //   });
+        // }
 
         return done(null, userSignIn, {
           message: "User Can Sign In",
@@ -150,6 +153,7 @@ passport.use(
         //err = null
         //user = false
         //info = {message: "user cant be craeted"}
+        console.log(e)
         return done(null, false, {
           message: "Can't Login",
         });
