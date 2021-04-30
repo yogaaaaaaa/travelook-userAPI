@@ -25,8 +25,16 @@ app.use(express.static("public"))
 //make routes
 app.use("/auth", userRoutes);
 
-let PORT = 3000 || process.env.PORT;
-  app.listen(PORT, () => console.log(`Server running on ${PORT}!`));
+
+if (process.env.NODE_ENV !== "test") {
+  // Running server
+  // let PORT = 3000 || process.env.PORT;
+  app.listen(3000, () => console.log(`Server running on 3000!`));
+}
+
+
+// let PORT = 3000 || process.env.PORT;
+//   app.listen(PORT, () => console.log(`Server running on ${PORT}!`));
 
 
 module.exports = app;
