@@ -15,7 +15,8 @@ module.exports = {
         type: Sequelize.STRING
       },
       role: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        defaultValue:"user"
       },
       email: {
         type: Sequelize.STRING
@@ -29,14 +30,22 @@ module.exports = {
       description: {
         type: Sequelize.STRING
       },
+      profile_image: {
+        type: Sequelize.STRING,
+        get(){
+          const image = this.getDataValue("image");
+  
+          if(!image){
+            return image;
+          }
+          return "/images/" +image;
+        }
+      },
       reservation_id: {
         type: Sequelize.INTEGER
       },
       review_id: {
         type: Sequelize.INTEGER
-      },
-      profile_image: {
-        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,

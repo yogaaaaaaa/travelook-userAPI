@@ -21,14 +21,12 @@ module.exports = (sequelize, DataTypes) => {
     password: DataTypes.STRING,
     phone_number: DataTypes.STRING,
     description: DataTypes.STRING,
+    profile_image: DataTypes.STRING,
     reservation_id: DataTypes.INTEGER,
-    review_id: DataTypes.INTEGER,
-    profile_image: DataTypes.STRING
+    review_id: DataTypes.INTEGER
   }, {
     sequelize,
-    paranoid: true, //soft delete
-    timestamps: true,
-    modelName: "user"
+    modelName: 'User',
   });
   return User;
 };

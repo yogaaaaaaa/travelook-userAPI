@@ -4,13 +4,13 @@ const authController = require("../controllers/authController");
 const authValidator = require("../middlewares/validators/authValidator");
 const auth = require("../middlewares/auth");
 
+const { imageUpload } = require("../middlewares/uploads/imageUpload");
+
+
 const router = express.Router();
 
 router.post(
-  "/signup",
-  authValidator.signup,
-  auth.signup,
-  authController.getToken
+  "/signup", imageUpload, authValidator.signup,  authController.getToken
 );
 router.post(
   "/signin",

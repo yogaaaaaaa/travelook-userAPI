@@ -4,6 +4,7 @@ exports.signup = async (req, res, next) => {
   //check req.body.email is email
 
   let errors = [];
+   
   if (!validator.isEmail(req.body.email)) {
     errors.push("email field must be valid");
   }
@@ -13,7 +14,6 @@ exports.signup = async (req, res, next) => {
       "password must contain min 8 chars, min 1 UpperCase, min 1 LowerCase, 1 numb, 1 symbol"
     );
   }
-
   //check pasword confirmation
   if (req.body.confirmPassword !== req.body.password) {
     errors.push("password confirmation must be same to password");

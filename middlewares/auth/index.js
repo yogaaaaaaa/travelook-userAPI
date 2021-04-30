@@ -65,6 +65,7 @@ passport.use(
         //err = null
         //user = false
         //info = {message: "user cant be craeted"}
+        console.e(message);
         return done(null, false, {
           message: "Can't Create User",
         });

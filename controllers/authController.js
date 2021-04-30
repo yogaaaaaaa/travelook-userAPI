@@ -5,9 +5,9 @@ class AuthController {
   async getToken(req, res) {
     try {
       //get the req.user from authRoutes
-      // amd create body variable
+      // and create body variable
       const body = {
-        id: req.user._id,
+        id: req.user.id,
         //  role: req.user.role,
         //  nama: req.user.nama,
       };
@@ -22,6 +22,7 @@ class AuthController {
       });
     } catch (e) {
       //if error
+      console.log(e);
       return res.status(500).json({
         message: "internal server error",
         error: e,

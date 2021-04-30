@@ -2,12 +2,11 @@ require("dotenv").config({
     path: `.env.${process.env.NODE_ENV}`,
   });
 const express = require("express");
-const fileUpload = require("express-fileupload");
+const app = express();
 
 //import routes
 const userRoutes = require("./routes/authRoutes.js");
 
-const app = express();
 
 // Body parser
 app.use(express.json()); // Enable json req.body
@@ -18,7 +17,7 @@ app.use(
 ); // Enable req.body urlencoded
 
 // To read form-data
-app.use(fileUpload());
+// app.use(fileUpload());
 
 //statuc folder for images
 app.use(express.static("public"))
