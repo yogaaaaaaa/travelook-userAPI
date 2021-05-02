@@ -1,5 +1,5 @@
 const e = require("express");
-const { user } = require("../models");
+const { User } = require("../models");
 const jwt = require("jsonwebtoken");
 
 class AuthController {
@@ -36,25 +36,19 @@ class AuthController {
     try {
       // Update data
 
-      let data = await user.findOneAndUpdate(
-        {
-          _id: req.user.id,
+      let updatedData = await User.update(req.body, {
+        where: {
+          id: req.params.id,
         },
-        req.body, // This is all of req.body
-        {
-          new: true,
-        }
-      );
-      // new is to return the updated barang data
-      // If no new, it will return the old data before updated
-
+      });
       // If success
-      console.log(data);
+      console.log(updatedData);
       return res.status(201).json({
         message: "Success",
-        data,
+        updatedData,
       });
     } catch (e) {
+      console.log(e)
       return res.status(500).json({
         message: "Internal Server Error",
         error: e,
@@ -65,9 +59,13 @@ class AuthController {
   //show user User
   async getOne(req, res) {
     try {
-      let data = await user.findOne({
-        _id: req.user.id,
+      let data = await User.findOne({
+        where:{
+          id: req.user.id,
+        }
+       
       });
+      console.log(data)
 
       return res.status(200).json({
         message: "Here is your Profile",

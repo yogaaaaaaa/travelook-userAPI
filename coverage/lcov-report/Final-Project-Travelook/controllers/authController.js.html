@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">45% </span>
+                <span class="strong">42.86% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>9/20</span>
+                <span class='fraction'>9/21</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">45% </span>
+                <span class="strong">42.86% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>9/20</span>
+                <span class='fraction'>9/21</span>
             </div>
         
             
@@ -138,13 +138,7 @@
 <a name='L79'></a><a href='#L79'>79</a>
 <a name='L80'></a><a href='#L80'>80</a>
 <a name='L81'></a><a href='#L81'>81</a>
-<a name='L82'></a><a href='#L82'>82</a>
-<a name='L83'></a><a href='#L83'>83</a>
-<a name='L84'></a><a href='#L84'>84</a>
-<a name='L85'></a><a href='#L85'>85</a>
-<a name='L86'></a><a href='#L86'>86</a>
-<a name='L87'></a><a href='#L87'>87</a>
-<a name='L88'></a><a href='#L88'>88</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L82'></a><a href='#L82'>82</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -188,19 +182,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -232,7 +220,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const e = require("express");
-const { user } = require("../models");
+const { User } = require("../models");
 const jwt = require("jsonwebtoken");
 &nbsp;
 class AuthController {
@@ -269,25 +257,19 @@ class AuthController {
 <span class="cstat-no" title="statement not covered" >    try {</span>
       // Update data
 &nbsp;
-      let data = <span class="cstat-no" title="statement not covered" >await user.findOneAndUpdate(</span>
-        {
-          _id: req.user.id,
+      let updatedData = <span class="cstat-no" title="statement not covered" >await User.update(req.body, {</span>
+        where: {
+          id: req.params.id,
         },
-        req.body, // This is all of req.body
-        {
-          new: true,
-        }
-      );
-      // new is to return the updated barang data
-      // If no new, it will return the old data before updated
-&nbsp;
+      });
       // If success
-<span class="cstat-no" title="statement not covered" >      console.log(data);</span>
+<span class="cstat-no" title="statement not covered" >      console.log(updatedData);</span>
 <span class="cstat-no" title="statement not covered" >      return res.status(201).json({</span>
         message: "Success",
-        data,
+        updatedData,
       });
     } catch (e) {
+<span class="cstat-no" title="statement not covered" >      console.log(e)</span>
 <span class="cstat-no" title="statement not covered" >      return res.status(500).json({</span>
         message: "Internal Server Error",
         error: e,
@@ -298,7 +280,7 @@ class AuthController {
   //show user User
 <span class="fstat-no" title="function not covered" >  as</span>ync getOne(req, res) {
 <span class="cstat-no" title="statement not covered" >    try {</span>
-      let data = <span class="cstat-no" title="statement not covered" >await user.findOne({</span>
+      let data = <span class="cstat-no" title="statement not covered" >await User.findOne({</span>
         _id: req.user.id,
       });
 &nbsp;
@@ -325,7 +307,7 @@ module.exports = new AuthController();
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri Apr 30 2021 22:17:12 GMT+0700 (Western Indonesia Time)
+                at Fri Apr 30 2021 23:10:09 GMT+0700 (Western Indonesia Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>

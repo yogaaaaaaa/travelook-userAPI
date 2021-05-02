@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1619795832838" clover="3.2.0">
-  <project timestamp="1619795832838" name="All files">
-    <metrics statements="176" coveredstatements="112" conditionals="62" coveredconditionals="23" methods="28" coveredmethods="16" elements="266" coveredelements="151" complexity="0" loc="176" ncloc="176" packages="8" files="9" classes="9"/>
+<coverage generated="1619799009437" clover="3.2.0">
+  <project timestamp="1619799009437" name="All files">
+    <metrics statements="178" coveredstatements="113" conditionals="62" coveredconditionals="23" methods="28" coveredmethods="16" elements="268" coveredelements="152" complexity="0" loc="178" ncloc="178" packages="8" files="9" classes="9"/>
     <package name="Final-Project-Travelook">
       <metrics statements="11" coveredstatements="10" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="0"/>
       <file name="index.js" path="/home/yogaadhi/Final-Project-Travelook/index.js">
@@ -28,9 +28,9 @@
       </file>
     </package>
     <package name="Final-Project-Travelook.controllers">
-      <metrics statements="20" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
+      <metrics statements="21" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
       <file name="authController.js" path="/home/yogaadhi/Final-Project-Travelook/controllers/authController.js">
-        <metrics statements="20" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
+        <metrics statements="21" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -43,14 +43,15 @@
         <line num="28" count="0" type="stmt"/>
         <line num="36" count="0" type="stmt"/>
         <line num="39" count="0" type="stmt"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="51" count="0" type="stmt"/>
         <line num="52" count="0" type="stmt"/>
-        <line num="53" count="0" type="stmt"/>
-        <line num="58" count="0" type="stmt"/>
-        <line num="67" count="0" type="stmt"/>
-        <line num="68" count="0" type="stmt"/>
-        <line num="72" count="0" type="stmt"/>
-        <line num="79" count="0" type="stmt"/>
-        <line num="87" count="1" type="stmt"/>
+        <line num="61" count="0" type="stmt"/>
+        <line num="62" count="0" type="stmt"/>
+        <line num="66" count="0" type="stmt"/>
+        <line num="73" count="0" type="stmt"/>
+        <line num="81" count="1" type="stmt"/>
       </file>
     </package>
     <package name="Final-Project-Travelook.middlewares.auth">
@@ -215,9 +216,9 @@
       </file>
     </package>
     <package name="Final-Project-Travelook.routes">
-      <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="authRoutes.js" path="/home/yogaadhi/Final-Project-Travelook/routes/authRoutes.js">
-        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
@@ -226,6 +227,7 @@
         <line num="10" count="1" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
         <line num="15" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
         <line num="29" count="1" type="stmt"/>
       </file>
     </package>

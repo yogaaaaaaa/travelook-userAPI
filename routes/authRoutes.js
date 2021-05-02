@@ -18,8 +18,8 @@ router.post(
   auth.signin,
   authController.getToken
 );
-// router.put("/update/", auth.user, userValidator.update, userController.update);
-// router.get("/", auth.user, userController.getOne);
+router.put("/update/:id", imageUpload ,authValidator.update, authController.update);
+router.get("/", auth.user, authController.getOne);
 // router.get("/adminpage/", auth.admin, userController.getOne);
 // router.get("/profilepage/", auth.user, userController.getOne);
 // router.get("/adminpage/users/", auth.admin, userController.getAll);

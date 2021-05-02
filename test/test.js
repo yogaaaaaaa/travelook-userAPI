@@ -21,6 +21,11 @@ describe("Auth Test", () => {
     //   const res = await request(app)
     it("it should make user and get the token", async () => {
       const res = await request(app).post("/auth/signup").send({
+        first_name: "test",
+        last_name: "test",
+        role: "user",
+        phone_number: "08123456678",
+        description: "hasdjlasdhshad",
         email: "usertest@test.com",
         password: "Aneh1234!!",
         confirmPassword: "Aneh1234!!",
