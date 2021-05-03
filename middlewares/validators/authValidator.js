@@ -10,6 +10,13 @@ exports.signup = async (req, res, next) => {
     errors.push("email field must be valid");
   }
 
+  if (validator.isEmpty(req.body.first_name)) {
+    errors.push("You must fill your name");
+  }
+
+  if (validator.isEmpty(req.body.last_name)) {
+    errors.push("You must fill your last name");
+  }
   if (!validator.isStrongPassword(req.body.password)) {
     errors.push(
       "password must contain min 8 chars, min 1 UpperCase, min 1 LowerCase, 1 numb, 1 symbol"
