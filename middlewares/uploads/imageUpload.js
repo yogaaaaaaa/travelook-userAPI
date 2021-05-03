@@ -59,7 +59,7 @@ module.exports.imageUpload = (req, res, next) => {
     }
 
     // If everythings is well fine, it will go to next middleware
-    if (req.file) req.body.image = req.file.filename;
+    if (req.file) req.body.profile_image = req.file.filename;
 
     next();
   });
