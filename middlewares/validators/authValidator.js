@@ -61,7 +61,13 @@ exports.update = async (req, res, next) => {
   //check req.body.email is email
 
   let errors = [];
-   
+  if (validator.isEmpty(req.body.first_name)) {
+    errors.push("You must fill your name");
+  }
+
+  if (validator.isEmpty(req.body.last_name)) {
+    errors.push("You must fill your last name");
+  }
   if (!validator.isEmail(req.body.email)) {
     errors.push("email field must be valid");
   }
