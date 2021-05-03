@@ -207,7 +207,7 @@ passport.use(
       
       try {
         console.log(token);
-        const userLogin = await User.findOne({ id: token.id });
+        const userLogin = await User.findOne({ where: {id: token.id} });
         //if user not admin
         if (userLogin.role.includes("admin")) {
           return done(null, token);

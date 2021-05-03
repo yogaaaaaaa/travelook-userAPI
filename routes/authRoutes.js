@@ -22,8 +22,8 @@ router.put("/update/:id", imageUpload ,authValidator.update, authController.upda
 router.get("/", auth.user, authController.getOne);
 // router.get("/adminpage/", auth.admin, userController.getOne);
 // router.get("/profilepage/", auth.user, userController.getOne);
-// router.get("/adminpage/users/", auth.admin, userController.getAll);
-// router.delete("/delete", auth.user, userController.delete);
+router.get("/adminpage/users/", auth.admin, authController.getAll);
+ router.delete("/delete", auth.user, authController.delete);
 
 
 module.exports = router;

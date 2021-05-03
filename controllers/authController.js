@@ -80,6 +80,49 @@ class AuthController {
       });
     }
   }
+
+   //delete user
+   async delete(req, res) {
+    try {
+      // delete data
+      await User.destroy({ where: {id: req.user.id} });
+
+      return res.status(200).json({
+        message: "Success",
+      });
+    } catch (e) {
+      console.log(e)
+      return res.status(500).json({
+        message: "Internal Server Error",
+        error: e,
+      });
+    }
+  }
+  //get All user
+  async getAll(req, res) {
+    try {
+      let data = await User.findAll();
+
+      //if no data
+      if (!data.length) {
+        return res.status(404).json({
+          message: "User not found",
+        });
+      }
+
+      //if success
+      return res.status(200).json({
+        message: "success",
+        data,
+      });
+    } catch (e) {
+      console.log(e)
+      return res.status(500).json({
+        message: "internal server error",
+        error: e,
+      });
+    }
+  }
 }
 
 module.exports = new AuthController();
