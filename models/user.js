@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
       }},
       phone_number: DataTypes.STRING,
       description: DataTypes.STRING,
-      profile_image: DataTypes.STRING,
+      image: DataTypes.STRING,
       reservation_id: DataTypes.INTEGER,
       review_id: DataTypes.INTEGER,
     },

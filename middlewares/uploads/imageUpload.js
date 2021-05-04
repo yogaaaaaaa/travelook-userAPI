@@ -39,7 +39,7 @@ function fileFilter(req, file, cb) {
 const upload = multer({
   fileFilter: fileFilter, // filter file first
   storage: storage, // If filter no error, go to storage function
-}).single("profile_image");
+}).single("image");
 
 // Function to start uploading
 module.exports.imageUpload = (req, res, next) => {
@@ -59,7 +59,7 @@ module.exports.imageUpload = (req, res, next) => {
     }
 
     // If everythings is well fine, it will go to next middleware
-    if (req.file) req.body.profile_image = req.file.filename;
+    if (req.file) req.body.image = req.file.filename;
 
     next();
   });

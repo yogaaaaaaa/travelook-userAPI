@@ -33,7 +33,7 @@ module.exports = {
       description: {
         type: Sequelize.STRING
       },
-      profile_image: {
+      image: {
         type: Sequelize.STRING,
         get(){
           const image = this.getDataValue("image");
