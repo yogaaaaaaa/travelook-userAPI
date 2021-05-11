@@ -133,16 +133,16 @@ passport.use(
         }
 
         //if user exist
-        // let validate = await bcrypt.compare(password, userSignIn.password);
+        let validate = await bcrypt.compare(password, userSignIn.password);
 
         //if password is worng
         // console.log(password)
 
-        // if (!validate) {
-        //   return done(null, false, {
-        //     message: "Wrong Password",
-        //   });
-        // }
+        if (!validate) {
+          return done(null, false, {
+            message: "Wrong Password",
+          });
+        }
 
         return done(null, userSignIn, {
           message: "User Can Sign In",

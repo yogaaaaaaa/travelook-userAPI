@@ -16,6 +16,10 @@ app.use(
   })
 ); // Enable req.body urlencoded
 
+//import errorHandler = require("./")
+const errorHandler = require("./middlewares/errorHandler")
+
+
 // To read form-data
 // app.use(fileUpload());
 
